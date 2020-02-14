@@ -5,5 +5,6 @@ public class RigidbodySleep : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null) rb.Sleep();
+
     }
 }
