@@ -25,6 +25,7 @@ public class Slingshot : MonoBehaviour
 	
 	void Awake()
 	{
+		S = this;
 		Transform launchPointTrans = transform.Find("LaunchPoint");                                        
 		launchPoint = launchPointTrans.gameObject;
 		launchPoint.SetActive(false);
@@ -33,13 +34,11 @@ public class Slingshot : MonoBehaviour
 
 	void OnMouseEnter()
 	{
-		//print("Slingshot:OnMouseEnter()");
 		launchPoint.SetActive(true);
 	}
 	
 	void OnMouseExit()
 	{
-		//print("Slingshot:OnMouseExit()");
 		launchPoint.SetActive(false);
 	}
 
@@ -81,6 +80,8 @@ public class Slingshot : MonoBehaviour
 			projectileRigidbody.velocity = -mouseDelta * velocityMult;
             FollowCam.POI = projectile;
 			projectile = null;
+			MissionDemolition.ShotFired();
+			ProjectileLine.S.poi = projectile;
         }
     }
 }

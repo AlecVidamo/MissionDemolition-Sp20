@@ -11,15 +11,11 @@ public class ProjectileLine : MonoBehaviour
 	private List<Vector3> points;
 	void Awake()
 	{
-		S = this;//	Set	the	singleton
-				 //	Get	a	reference	to	the	LineRenderer
+		S = this;
 		line = GetComponent<LineRenderer>();
-		//	Disable	the	LineRenderer	until	it's	needed
 		line.enabled = false;
-		//	Initialize	the	points	List
 		points = new List<Vector3>();
 	}
-	//	This	is	a	property	(that	is,	a	method	masquerading	as	a	field)
 	public GameObject poi
 	{
 		get
@@ -31,7 +27,6 @@ public class ProjectileLine : MonoBehaviour
 			_poi = value;
 			if (_poi != null)
 			{
-				//	When	_poi	is	set	to	something	new, it	resets everything
 				line.enabled = false;
 				points = new List<Vector3>();
 				AddPoint();
@@ -114,7 +109,6 @@ public class ProjectileLine : MonoBehaviour
 		AddPoint();
 		if (FollowCam.POI == null)
 		{
-			//	Once	FollowCam.POI	is	null,	make	the	local	poi	nulll	too
 			poi = null;
 		}
 	}
